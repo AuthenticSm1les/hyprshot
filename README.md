@@ -178,3 +178,7 @@ Three implementation notes worth knowing:
 The capture bar itself needs a live Wayland session with a working GPU, so it is
 verified by running `./build/shot --gui` rather than by an automated test; the
 selection logic it drives is covered by `gui_state_test`.
+
+## Licence
+
+MIT — see [LICENSE](LICENSE).
