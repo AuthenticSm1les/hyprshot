@@ -7,9 +7,15 @@
 # Requires hyprtoolkit and hyprutils (pkg-config), plus grim/slurp at runtime.
 
 CXX        ?= g++
-CXXFLAGS   ?= -std=c++23 -O2 -Wall -Wextra
+CXXFLAGS   ?= -O2 -Wall -Wextra
 CPPFLAGS   ?=
 LDFLAGS    ?=
+
+# hyprtoolkit requires C++23. This is appended rather than folded into the
+# CXXFLAGS default above, because a CXXFLAGS from the environment (makepkg
+# supplies one) would otherwise silently replace it and the build would fail on
+# std::expected.
+CXXFLAGS   += -std=c++23
 
 PKGS       := hyprtoolkit hyprutils
 PKG_CFLAGS := $(shell pkg-config --cflags $(PKGS))
