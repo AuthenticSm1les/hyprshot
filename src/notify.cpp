@@ -55,7 +55,7 @@ void handle_notification_action(const std::filesystem::path& path) {
     // otherwise still announce the saved file.
     const bool can_open = command_exists("xdg-open");
 
-    std::vector<std::string> command{"notify-send", "--app-name=shot", "--urgency=low"};
+    std::vector<std::string> command{"notify-send", "--app-name=shot", "--urgency=low", "--category=osd"};
     if (can_open)
         command.emplace_back("--action=open=Open screenshot");
     command.emplace_back("Screenshot saved");
